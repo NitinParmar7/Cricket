@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script src="https://cdn.jsdelivr.net/npm/phaser@3.15.1/dist/phaser-arcade-physics.min.js"></script>
+    <title>World Super Cricket</title>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.15.1/dist/phaser.js"></script>
 </head>
 <body>
-
+    <script type="module" src="src/main.js"></script>
     <script>
     var config = {
         type: Phaser.AUTO,
-        width: 1080,
-        height: 1920,
+        backgroundColor: '#000000',
+        width: 600,
+        height: 800,
         scene: {
             preload: preload,
             create: create,
@@ -28,7 +30,7 @@
 
     function create ()
     {
-        MenuGroup = this.add.image(0, 0, 'MenuBG').setOrigin(0, 0);
+        MenuGroup = this.add.image(0, 0, 'MenuBG').setOrigin(0, 0).setScale(0.5);
     }
 
     function update()
