@@ -37,8 +37,10 @@ export default class Game extends Phaser.Scene
         hookShotBtn.on('pointerdown', this.hookShot, this);
         var driveShotBtn = this.add.image(180, 640, 'DriveShot').setScale(0.5).setInteractive();
         driveShotBtn.on('pointerdown', this.driveShot, this);
-        this.add.image(300, 640, 'CoverShot').setScale(0.5);
-        this.add.image(420, 640, 'OffDrive').setScale(0.5);
+        var CoverShot = this.add.image(300, 640, 'CoverShot').setScale(0.5).setInteractive();
+        CoverShot.on('pointerdown', this.driveShot, this);
+        var offdrive = this.add.image(420, 640, 'OffDrive').setScale(0.5).setInteractive();
+        offdrive.on('pointerdown', this.driveShot, this);
         
         this.Batsman = new Batsman(this,200, 420, 'Batsman');
         this.add.existing(this.Batsman);
@@ -77,7 +79,7 @@ export default class Game extends Phaser.Scene
 
     hookShot()
     {
-        this.Batsman.playAnim('hookshot');
+        this.Batsman.playAnim('driveshot');
     }
 
     driveShot()
